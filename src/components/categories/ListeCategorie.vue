@@ -6,7 +6,7 @@
         <i class="fas fa-plus"></i> {{ $t('new_category') }} <!-- Updated key for new category -->
       </router-link>
     </div>
-    <table class="table">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col" class="col-id">Id</th>
@@ -20,13 +20,13 @@
           <td class="col-name">{{ item.name }}</td>
           <td class="col-actions">
             <router-link :to="`/category/show/${item.id}`" class="btn btn-info btn-sm">
-              <i class="fas fa-eye"></i> {{ $t('view') }} <!-- Updated key for view -->
+              <i class="fas fa-eye"></i> 
             </router-link>
             <router-link :to="`/category/edit/${item.id}`" class="btn btn-warning btn-sm">
-              <i class="fas fa-edit"></i> {{ $t('edit') }} <!-- Updated key for edit -->
+              <i class="fas fa-edit"></i> 
             </router-link>
             <button @click="confirmDelete(item.id)" class="btn btn-danger btn-sm">
-              <i class="fas fa-trash"></i> {{ $t('delete') }} <!-- Updated key for delete -->
+              <i class="fas fa-trash"></i>
             </button>
           </td>
         </tr>
@@ -55,7 +55,7 @@ const confirmDelete = (id) => {
 
 // Function to delete category
 const deleteCategory = (id) => {
-  store.deleteCategory(id); // Make sure this method exists in your store
+  store.deleteCategory(id); 
 };
 
 

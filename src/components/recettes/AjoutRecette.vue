@@ -36,6 +36,7 @@
         </button>
       </form>
       <p v-if="errorMessage" class="text-danger">{{ errorMessage }}</p>
+      <p v-if="successMessage" class="text-success">{{ successMessage }}</p>
     </div>
   </div>
 </template>
@@ -57,6 +58,7 @@ const selectedCategory = ref(null);
 const categories = ref([]);
 const isLoading = ref(false);
 const errorMessage = ref('');
+const successMessage = ref('');
 
 onMounted(async () => {
   await categoryStore.loadDataFromApi();
@@ -66,7 +68,8 @@ onMounted(async () => {
 // Fonction pour soumettre une nouvelle recette
 const onSubmit = async () => {
   isLoading.value = true;
-  errorMessage.value = ''; // Reset error message
+  errorMessage.value = '';
+  successMessage.value = '';
   try {
     await store.addRecette({
       titre: titre.value,
@@ -82,7 +85,7 @@ const onSubmit = async () => {
     router.push('/recette-list');
   } catch (error) {
     console.error('Erreur lors de l\'ajout de la recette :', error);
-    errorMessage.value = 'Erreur lors de l\'ajout de la recette. Veuillez réessayer.'; // Display error message
+    errorMessage.value = 'Erreur lors de l\'ajout de la recette. Veuillez réessayer.'; 
   } finally {
     isLoading.value = false;
   }

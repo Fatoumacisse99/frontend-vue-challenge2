@@ -9,8 +9,8 @@ const messages = {
     title: 'Title',
     ingredients: 'Ingredients',
     type: 'Type',
-    category: 'Category', // Added category translation
-    image_url: 'Image URL', // Added for recipe image
+    category: 'Category', 
+    image_url: 'Image URL', 
     type_options: {
       dessert: 'Dessert',
       entree: 'Entrée',
@@ -18,9 +18,9 @@ const messages = {
       hello: 'Hello',
     confirmDelete: 'Are you sure you want to delete this recipe?',
     },
-    new_recipe: 'New Recipe', // Only one definition
+    new_recipe: 'New Recipe', 
     search: 'Search',
-    category_list: 'Category List', // Add translation for category list
+    category_list: 'Category List', 
     new_category: 'New Category',
     edit_recipe: 'Edit Recipe:',
     categories: 'Categories',
@@ -46,6 +46,7 @@ const messages = {
     enter_category_name: 'Enter the category name',
     add: 'Add',
     cancel: 'Cancel',
+    
   },
 
   fr: {
@@ -63,9 +64,9 @@ const messages = {
       entree: 'Entrée',
       plat: 'Plat',
     },
-    new_recipe: 'Nouvelle Recette', // Correct translation
+    new_recipe: 'Nouvelle Recette', 
     search: 'Recherche',
-    category_list: 'Liste des Catégories', // Add translation for category list in French
+    category_list: 'Liste des Catégories', 
     new_category: 'Nouvelle Catégorie',
     edit_recipe: 'Modifier une recette :',
     recipe_details: 'Détails de la recette',
@@ -96,6 +97,7 @@ const messages = {
     recipe_list:'Liste_Recettes',
     hello: 'Bonjour',
     confirmDelete: 'Êtes-vous sûr de vouloir supprimer cette recette ?',
+    select_type: "Sélectionnez un type"
   },
 };
 
