@@ -46,6 +46,8 @@ import { ref, onMounted } from 'vue';
 import { useRecetteStore } from '../../store/recetteStore';
 import { useCategoryStore } from '../../store/categoryStore';
 import { useRouter } from 'vue-router';
+import { useToast } from "vue-toastification";
+const toast = useToast(); 
 
 const store = useRecetteStore();
 const categoryStore = useCategoryStore();
@@ -65,11 +67,17 @@ onMounted(async () => {
   categories.value = categoryStore.categories;
 });
 
-// Fonction pour soumettre une nouvelle recette
 const onSubmit = async () => {
   isLoading.value = true;
   errorMessage.value = '';
   successMessage.value = '';
+  const exists = store.recettes.some(recette => recette.titre === titre.value);
+
+  if (exists) {
+    toast.error('Une recette avec ce titre existe déjà.');
+    isLoading.value = false; 
+    return;
+  }
   try {
     await store.addRecette({
       titre: titre.value,
@@ -77,7 +85,7 @@ const onSubmit = async () => {
       type: recipeType.value,
       categorie_id: selectedCategory.value,
     });
-    // Clear the form
+    toast.success('Recette ajoutée avec succès.'); 
     titre.value = '';
     ingredients.value = '';
     recipeType.value = 'dessert';
@@ -85,7 +93,7 @@ const onSubmit = async () => {
     router.push('/recette-list');
   } catch (error) {
     console.error('Erreur lors de l\'ajout de la recette :', error);
-    errorMessage.value = 'Erreur lors de l\'ajout de la recette. Veuillez réessayer.'; 
+    toast.error('Erreur lors de l\'ajout de la recette. Veuillez réessayer.'); 
   } finally {
     isLoading.value = false;
   }

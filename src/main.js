@@ -5,6 +5,9 @@ import { createPinia } from 'pinia';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import '@fortawesome/fontawesome-free/css/all.css';
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
+
 
 // Import FontAwesome components
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -24,6 +27,7 @@ const pinia = createPinia();
 
 // Use Pinia for state management
 app.use(pinia);
+app.use(Toast);
 
 // Use the router if you have routing set up
 app.use(router);

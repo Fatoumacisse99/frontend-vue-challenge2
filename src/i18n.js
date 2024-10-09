@@ -94,7 +94,7 @@ const messages = {
     cancel: 'Annuler',
     edit: 'Modifier',
     view: 'Detail',
-    recipe_list:'Liste_Recettes',
+    recipe_lists:'Liste_Recettes',
     hello: 'Bonjour',
     confirmDelete: 'Êtes-vous sûr de vouloir supprimer cette recette ?',
     select_type: "Sélectionnez un type"
@@ -102,7 +102,7 @@ const messages = {
 };
 
 const i18n = createI18n({
-  locale: 'fr',
+  locale: 'en',
   messages,
 });
 

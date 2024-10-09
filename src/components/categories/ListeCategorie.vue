@@ -42,6 +42,8 @@ import { useRouter } from 'vue-router';
 
 const store = useCategoryStore();
 const router = useRouter();
+import { useToast } from "vue-toastification";
+const toast = useToast(); 
 
 onMounted(() => {
  store.loadDataFromApi()
@@ -51,7 +53,15 @@ const confirmDelete = (id) => {
   if (confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?')) {
     deleteCategory(id);
   }
+  // if (confirm) {
+  //   toast.success('Catégorie supprimée avec succès.');}
+  //   else {
+  //     toast.error('Erreur : la catégorie ne peut pas être supprimée car elle est utilisée dans des recettes.');
+  //   }
+   
 };
+
+
 
 // Function to delete category
 const deleteCategory = (id) => {

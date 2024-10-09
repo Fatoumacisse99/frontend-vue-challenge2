@@ -58,7 +58,7 @@ const recette = ref({
   titre: '',
   ingredients: '',
   type: '',
-  category: '', // Use ID for category
+  categorie_id: '', 
 });
 
 const categories = ref([]);

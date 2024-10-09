@@ -102,7 +102,7 @@ export const useRecetteStore = defineStore("recettes", {
         // Vérifiez que l'objet recette est bien structuré
         if (!recette.titre || !recette.ingredients || !recette.type || !recette.categorie_id) {
           console.error("Missing required fields");
-          return;
+          return "Tous les champs sont obligatoires.";
         }
     
         const nouvelleRecette = {

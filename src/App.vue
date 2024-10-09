@@ -1,6 +1,5 @@
 <template>
   <div class="container-fluid">
-    <!-- Fixed navigation bar with Bootstrap -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
         <button
@@ -55,9 +54,7 @@
         </div>
       </div>
     </nav>
-
-    <!-- Main content -->
-    <div class="content" style="margin-top: 80px;">
+    <div class="content" style="margin-top: 50px;">
       <router-view />
     </div>
   </div>
