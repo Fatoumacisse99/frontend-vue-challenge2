@@ -73,35 +73,35 @@ onMounted(async () => {
     
     if (existingRecette) {
       recette.value = { ...existingRecette };
+    
     } else {
+
       router.push('/recette-list');
     }
 
-    categories.value = categoryStore.categories; // Populate categories
+    categories.value = categoryStore.categories; 
   } catch (error) {
     console.error('Error loading data:', error);
-    // Optionally, you can display an error message to the user
   } finally {
-    isLoading.value = false; // Stop loading state
+    isLoading.value = false; 
   }
 });
 
 const onSubmit = async () => {
+  
   try {
     const updatedRecette = {
-      ...recette.value, // Assuming recette.value has the necessary fields
-      category_id: recette.value.category, // Ensure this matches your API structure
-      id: parseInt(route.params.id, 10), // Make sure the ID is included
+      ...recette.value, 
+      category_id: recette.value.category, 
+      id: parseInt(route.params.id, 10), 
     };
 
-    // Call the updateRecette action
+   
     await store.updateRecette(updatedRecette);
-
-    // Navigate to the list of recettes after a successful update
     router.push('/recette-list');
   } catch (error) {
     console.error('Error updating recette:', error);
-    // Optionally display an error message to the user
+  
   }
 };
 

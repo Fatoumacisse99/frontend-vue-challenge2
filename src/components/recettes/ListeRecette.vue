@@ -46,7 +46,8 @@ import { onMounted, ref } from "vue";
 import { useRecetteStore } from '@/store/recetteStore';
 import { useCategoryStore } from '@/store/categoryStore';
 import { useI18n } from 'vue-i18n'; // Importer useI18n
-
+import { useToast } from "vue-toastification";
+const toast = useToast(); 
 
 const store = useRecetteStore();
 const categoryStore = useCategoryStore();
@@ -79,6 +80,7 @@ const confirmDelete = (id) => {
   if (confirm(t('confirm_delete'))) { // Utilisez t au lieu de $t
     deleteRecette(id);
   }
+  toast.success("Recette supprimé avec succé")
 };
 
 // Function to delete a recette

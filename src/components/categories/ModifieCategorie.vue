@@ -40,7 +40,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import { useCategoryStore } from '@/store/categoryStore'; // Assuming categoryStore is in this path
+import { useCategoryStore } from '@/store/categoryStore';
 
 const store = useCategoryStore();
 const router = useRouter();
@@ -50,21 +50,20 @@ const category = ref(null);
 
 onMounted(() => {
   const id = parseInt(route.params.id, 10);
-  const existingCategory = store.getCategoryById(id); // Correct method from store
+  const existingCategory = store.getCategoryById(id); 
   if (existingCategory) {
     category.value = { ...existingCategory };
+
   } else {
-    router.push('/categories'); // Redirect to category list if not found
+    router.push('/categories'); 
   }
 });
 
 const onSubmit = () => {
-  store.editCategory(category.value.id, category.value); // Use the correct store method
-  router.push('/categories'); // Redirect to category list after save
+  store.editCategory(category.value.id, category.value); 
+  router.push('/categories');  
 };
 </script>
-
-<!-- Scoped CSS for styling -->
 <style scoped>
 .container {
   max-width: 800px;
@@ -76,7 +75,7 @@ h2 {
 }
 
 .card {
-  background-color: #f8f9fa; /* Soft background color */
+  background-color: #f8f9fa; 
   border-radius: 10px;
 }
 

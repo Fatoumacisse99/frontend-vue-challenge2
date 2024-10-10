@@ -41,22 +41,14 @@ export default {
     const router = useRouter();
 
     const ajouterCategorie = () => {
-      // Vérifiez si la catégorie existe déjà
-      const existingCategory = categoryStore.categories.find(
-        category => category.name.toLowerCase() === newCategory.value.name.toLowerCase()
-      );
-
-      if (existingCategory) {
-        // Afficher un message d'erreur si la catégorie existe déjà
-        toast.error('Cette catégorie existe déjà.');
-      } else {
-        // Si la catégorie n'existe pas, l'ajouter
+      if (newCategory.value.name) {
         categoryStore.addCategory(newCategory.value);
-        toast.success('Catégorie ajoutée avec succès.');
         newCategory.value.name = '';
         router.push('/categories');
       }
+      toast.success('Categorie ajoutée avec succès.');
     };
+
     const annuler = () => {
       newCategory.value.name = '';
       router.push('/categories');

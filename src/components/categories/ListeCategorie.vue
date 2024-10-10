@@ -48,22 +48,11 @@ const toast = useToast();
 onMounted(() => {
  store.loadDataFromApi()
 });
-// Function to confirm deletion
 const confirmDelete = (id) => {
   if (confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?')) {
     deleteCategory(id);
-  }
-  // if (confirm) {
-  //   toast.success('Catégorie supprimée avec succès.');}
-  //   else {
-  //     toast.error('Erreur : la catégorie ne peut pas être supprimée car elle est utilisée dans des recettes.');
-  //   }
-   
+  } 
 };
-
-
-
-// Function to delete category
 const deleteCategory = (id) => {
   store.deleteCategory(id); 
 };
