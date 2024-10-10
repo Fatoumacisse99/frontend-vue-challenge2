@@ -3,7 +3,6 @@
     <div class="col-md-6" style="margin-top: 20px;">
       <h3 class="text-center">{{ $t('add_recipe') }}</h3>
       <form @submit.prevent="onSubmit">
-        <!-- Form Fields -->
         <div class="mb-3">
           <label for="titre" class="form-label">{{ $t('title') }}</label>
           <input type="text" class="form-control" id="titre" v-model="titre" required />

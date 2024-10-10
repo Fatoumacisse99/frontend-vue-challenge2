@@ -45,13 +45,12 @@
 import { onMounted, ref } from "vue";
 import { useRecetteStore } from '@/store/recetteStore';
 import { useCategoryStore } from '@/store/categoryStore';
-import { useI18n } from 'vue-i18n'; // Importer useI18n
+import { useI18n } from 'vue-i18n'; 
 import { useToast } from "vue-toastification";
 const toast = useToast(); 
-
 const store = useRecetteStore();
 const categoryStore = useCategoryStore();
-const { t } = useI18n(); // Obtenez la fonction de traduction
+const { t } = useI18n();
 
 const isLoading = ref(true);
 
@@ -63,33 +62,27 @@ onMounted(async () => {
     ]);
   } catch (error) {
     console.error('Error loading data:', error);
-    // You might want to show an error message to the user
   } finally {
     isLoading.value = false;
   }
 });
-
-// Function to get category name by ID
 const getCategoryById = (categorie_id) => {
   const category = categoryStore.categories.find(cat => cat.id === categorie_id);
   return category ? category.name : 'Unknown';
 };
-
-// Function to confirm deletion
 const confirmDelete = (id) => {
-  if (confirm(t('confirm_delete'))) { // Utilisez t au lieu de $t
+  if (confirm(t('confirm_delete'))) {
     deleteRecette(id);
-  }
-  toast.success("Recette supprimé avec succé")
+    
+  } 
 };
 
-// Function to delete a recette
+
 const deleteRecette = async (id) => {
   try {
     await store.deleteRecette(id);
   } catch (error) {
     console.error('Error deleting recette:', error);
-    // Show an error message to the user if needed
   }
 };
 </script>

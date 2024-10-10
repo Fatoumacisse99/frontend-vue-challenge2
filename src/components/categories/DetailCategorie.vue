@@ -41,12 +41,10 @@ const store = useCategoryStore();
 const categorie = ref(null);
 
 onMounted(() => {
-  const id = parseInt(route.params.id); // Assurez-vous que l'ID est bien un entier
-  categorie.value = store.getCategoryById(id); // Utilise le nom correct de la méthode
+  const id = parseInt(route.params.id);
+  categorie.value = store.getCategoryById(id);
 });
 </script>
-
-<!-- Style CSS personnalisé -->
 <style scoped>
 .container {
   max-width: 800px;
@@ -56,8 +54,8 @@ h2 {
   margin-bottom: 20px;
 }
 .card {
-  background-color: #f8f9fa; /* Couleur de fond douce */
-  border-radius: 10px; /* Coins arrondis */
+  background-color: #f8f9fa; 
+  border-radius: 10px;
 }
 .card-body {
   padding: 20px;
@@ -70,10 +68,10 @@ h2 {
   margin-bottom: 20px;
 }
 .btn-primary {
-  background-color: #007bff; /* Couleur de bouton primaire */
+  background-color: #007bff; 
   border-color: #007bff;
 }
 .btn-primary:hover {
-  background-color: #0056b3; /* Couleur au survol */
+  background-color: #0056b3;
 }
 </style>

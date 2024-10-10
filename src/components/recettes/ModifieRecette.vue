@@ -19,8 +19,6 @@
             <option value="plat principal">{{ $t('dish') }}</option>
           </select>
         </div>
-
-        <!-- Dropdown for categories -->
         <div class="mb-3">
           <label for="categorie" class="form-label">{{ $t('Category') }}</label>
           <select class="form-select" id="categorie" v-model="recette.category" required>
@@ -62,9 +60,7 @@ const recette = ref({
 });
 
 const categories = ref([]);
-const isLoading = ref(true); // Loading state
-
-// Fetch categories and existing recipe on mount
+const isLoading = ref(true); 
 onMounted(async () => {
   try {
     await categoryStore.loadDataFromApi();
@@ -95,8 +91,6 @@ const onSubmit = async () => {
       category_id: recette.value.category, 
       id: parseInt(route.params.id, 10), 
     };
-
-   
     await store.updateRecette(updatedRecette);
     router.push('/recette-list');
   } catch (error) {
@@ -108,7 +102,6 @@ const onSubmit = async () => {
 </script>
 
 <style scoped>
-/* Optional: You can add some custom styles here if needed */
 .btn-success {
   margin-top: 10px;
 }

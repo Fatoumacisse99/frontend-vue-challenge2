@@ -37,7 +37,7 @@
 import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useRecetteStore } from '@/store/recetteStore';
-import { useCategoryStore } from '@/store/categoryStore'; // Import the category store
+import { useCategoryStore } from '@/store/categoryStore';
 
 const route = useRoute();
 const recetteStore = useRecetteStore();
@@ -45,22 +45,20 @@ const categoryStore = useCategoryStore();
 const recette = ref(null);
 
 onMounted(async () => {
-  await recetteStore.loadDataFromApi(); // Load recipes from the API
+  await recetteStore.loadDataFromApi();
   const id = parseInt(route.params.id);
   recette.value = recetteStore.recettes.find(rec => rec.id === id) || null;
 
-  console.log('Recette récupérée:', recette.value); // Log the retrieved recipe
+  console.log('Recette récupérée:', recette.value);
 });
-
-// Function to get the category name from the category store
 const getCategoryById = (categoryId) => {
   const category = categoryStore.categories.find(cat => cat.id === categoryId);
-  return category ? category.name : 'Unknown'; // Return 'Unknown' if the category is not found
+  return category ? category.name : 'Unknown';
 };
 </script>
 
 <style scoped>
 .container {
-  margin-top: 20px; /* Adjust if necessary */
+  margin-top: 20px;
 }
 </style>

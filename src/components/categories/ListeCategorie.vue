@@ -1,16 +1,16 @@
 <template>
   <div class="container-w-25">
-    <h2>{{ $t('category_list') }}</h2> <!-- Updated key for category list -->
+    <h2>{{ $t('category_list') }}</h2>
     <div class="d-flex justify-content-end mb-4">
       <router-link to="/category/new" class="btn btn-danger">
-        <i class="fas fa-plus"></i> {{ $t('new_category') }} <!-- Updated key for new category -->
+        <i class="fas fa-plus"></i> {{ $t('new_category') }}
       </router-link>
     </div>
     <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col" class="col-id">Id</th>
-          <th scope="col" class="col-name">{{ $t('category_name') }}</th> <!-- Updated key for category name -->
+          <th scope="col" class="col-name">{{ $t('category_name') }}</th>
           <th scope="col" class="col-actions">{{ $t('actions') }}</th>
         </tr>
       </thead>

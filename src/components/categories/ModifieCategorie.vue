@@ -27,7 +27,6 @@
         </div>
       </div>
     </div>
-
     <div v-else class="text-center mt-5">
       <p class="text-danger">{{ $t('category_not_found') }}</p>
       <router-link to="/categories" class="btn btn-secondary">
